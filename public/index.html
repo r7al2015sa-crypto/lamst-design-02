@@ -543,7 +543,7 @@ function updateMono(){
   if(!S.groom||!S.bride)return;
   const c1=S.groom.trim().charAt(0),c2=S.bride.trim().charAt(0),dir=S.style;
   document.getElementById('monoG').innerHTML=`<img src="${MONO_BASE}/${dir}/${c1}.png" alt="${c1}" style="max-width:110px;max-height:65px;object-fit:contain" onerror="this.outerHTML='<span class=\\'fb\\'>${c1}</span>'">`;
-  document.getElementById('monoSep').innerHTML=`<img src="${MONO_BASE}/${dir}/separator.png" alt="و" style="max-width:44px;max-height:60px;object-fit:contain" onerror="this.outerHTML='<span class=\\'fb\\' style=\\'font-size:26px;color:var(--gold-d)\\'>و</span>'">`;
+  document.getElementById('monoSep').innerHTML=`<img src="${MONO_BASE}/${dir}/الفاصلة.png" alt="و" style="max-width:44px;max-height:60px;object-fit:contain" onerror="this.outerHTML='<span class=\\'fb\\' style=\\'font-size:26px;color:var(--gold-d)\\'>و</span>'">`;
   document.getElementById('monoB').innerHTML=`<img src="${MONO_BASE}/${dir}/${c2}.png" alt="${c2}" style="max-width:110px;max-height:65px;object-fit:contain" onerror="this.outerHTML='<span class=\\'fb\\'>${c2}</span>'">`;
 }
 function selStyle(el,name){document.querySelectorAll('.style-card').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');S.style=name;updateMono();saveData();}
@@ -685,7 +685,7 @@ async function generate(){
     const ctx=canvas.getContext('2d');ctx.fillStyle='#000';ctx.fillRect(0,0,900,320);
     const loadImg=src=>new Promise(ok=>{const img=new Image();img.crossOrigin='anonymous';img.onload=()=>ok(img);img.onerror=()=>ok(null);img.src=src;});
     // الحروف فقط — بدون Congrats هنا (تُرسم في renderCanvas)
-    const [imgG,imgS,imgB]=await Promise.all([loadImg(`${MONO_BASE}/${dir}/${c1}.png`),loadImg(`${MONO_BASE}/${dir}/separator.png`),loadImg(`${MONO_BASE}/${dir}/${c2}.png`)]);
+    const [imgG,imgS,imgB]=await Promise.all([loadImg(`${MONO_BASE}/${dir}/${c1}.png`),loadImg(`${MONO_BASE}/${dir}/الفاصلة.png`),loadImg(`${MONO_BASE}/${dir}/${c2}.png`)]);
     // حروف متقاربة
     const LSIZE=190,SSIZE=110,GAP=6,yc=130;
     const totalW=LSIZE+GAP+SSIZE+GAP+LSIZE,sx=(900-totalW)/2;
